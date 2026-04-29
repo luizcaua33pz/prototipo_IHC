@@ -1,0 +1,201 @@
+:root {
+  /* Cores Vivas e Acessíveis - Tema Claro */
+  --primary-purple: #7209B7;
+  --primary-blue: #0066FF;
+  --primary-yellow: #FFB703;
+  --primary-orange: #FF6B35;
+  --primary-green: #00D084;
+  --primary-pink: #FF006B;
+  
+  /* Cores auxiliares */
+  --text: #0A0E27;
+  --text-light: #333333;
+  --text-white: #ffffff;
+  --bg-light: #F7F8FF;
+  --bg-white: #ffffff;
+  --border: #CDD1E0;
+  --shadow: 0 8px 24px rgba(114, 9, 183, 0.15);
+  --shadow-lg: 0 8px 24px rgba(114, 9, 183, 0.2);
+
+  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --mono: ui-monospace, Consolas, monospace;
+
+  font: 16px/145% var(--sans);
+  letter-spacing: 0.16px;
+ 
+  color: var(--text);
+  background: var(--bg-light);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media (max-width: 1024px) {
+    font-size: 15px;
+  }
+}
+
+/* Tema Escuro com Cores Vivas */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-purple: #C084FC;
+    --primary-blue: #00D4FF;
+    --primary-yellow: #FFD60A;
+    --primary-orange: #FF8C5A;
+    --primary-green: #1ACD4A;
+    --primary-pink: #FF3D94;
+    
+    --text: #FFFFFF;
+    --text-light: #E0E0E0;
+    --text-white: #ffffff;
+    --bg-light: #0A0E27;
+    --bg-white: #1A1F3A;
+    --border: #3A4560;
+    --shadow: 0 8px 24px rgba(192, 132, 252, 0.2);
+    --shadow-lg: 0 8px 24px rgba(192, 132, 252, 0.3);
+  }
+}
+
+/* Modo Alto Contraste */
+@media (prefers-contrast: more) {
+  :root {
+    --primary-purple: #3D0099;
+    --primary-blue: #0033CC;
+    --primary-yellow: #CC9900;
+    --primary-orange: #CC3300;
+    --primary-green: #009933;
+    --primary-pink: #CC0033;
+    
+    --text: #000000;
+    --text-light: #000000;
+    --bg-light: #FFFFFF;
+    --bg-white: #F5F5F5;
+    --border: #000000;
+    --shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* Alto Contraste + Tema Escuro */
+@media (prefers-color-scheme: dark) and (prefers-contrast: more) {
+  :root {
+    --primary-purple: #E0B0FF;
+    --primary-blue: #00FFFF;
+    --primary-yellow: #FFFF00;
+    --primary-orange: #FF9966;
+    --primary-green: #00FF00;
+    --primary-pink: #FF66FF;
+    
+    --text: #FFFFFF;
+    --text-light: #FFFF00;
+    --bg-light: #000000;
+    --bg-white: #1A1A1A;
+    --border: #FFFFFF;
+    --shadow: 0 8px 24px rgba(255, 255, 255, 0.3);
+  }
+}
+
+body {
+  margin: 0;
+}
+
+#root {
+  width: 1126px;
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  border-inline: 1px solid var(--border);
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+h1,
+h2 {
+  font-family: var(--heading);
+  font-weight: 500;
+  color: var(--text-h);
+}
+
+h1 {
+  font-size: 56px;
+  letter-spacing: -1.68px;
+  margin: 32px 0;
+  @media (max-width: 1024px) {
+    font-size: 36px;
+    margin: 20px 0;
+  }
+}
+h2 {
+  font-size: 24px;
+  line-height: 118%;
+  letter-spacing: -0.24px;
+  margin: 0 0 8px;
+  @media (max-width: 1024px) {
+    font-size: 20px;
+  }
+}
+p {
+  margin: 0;
+}
+
+code,
+.counter {
+  font-family: var(--mono);
+  display: inline-flex;
+  border-radius: 4px;
+  color: var(--text-h);
+}
+
+code {
+  font-size: 15px;
+  line-height: 135%;
+  padding: 4px 8px;
+  background: var(--code-bg);
+}
+
+/* Interactive helpers for app */
+.btn {
+  display: inline-block;
+  padding: 10px 14px;
+  background: var(--primary-green);
+  color: #000000;
+  border-radius: 8px;
+  border: 2px solid var(--primary-green);
+  cursor: pointer;
+  transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+  font-weight: 600;
+}
+.btn:hover { 
+  transform: translateY(-3px); 
+  box-shadow: var(--shadow); 
+  background: var(--primary-blue);
+  color: #ffffff;
+  border-color: var(--primary-blue);
+}
+.btn:focus-visible { 
+  outline: 3px solid var(--primary-blue); 
+  outline-offset: 2px;
+}
+
+.card { transition: transform .12s ease, box-shadow .12s ease; }
+.card.clickable { cursor: pointer; }
+.card.clickable:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+
+.tag { transition: background-color .12s ease, transform .12s ease; }
+.tag.selected { background: var(--primary-green); color: #000; font-weight: 600; }
+
+.notification {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  background: var(--primary-blue);
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  z-index: 9999;
+  border: 2px solid var(--primary-green);
+  font-weight: 600;
+}

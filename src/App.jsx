@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import "./App.css";
 import LoginRegister from "./LoginRegister";
 
@@ -682,6 +683,7 @@ export default function App() {
           <span>{toastMessage}</span>
         </div>
       )}
+      <SpeedInsights />
     </div>
   );
 }

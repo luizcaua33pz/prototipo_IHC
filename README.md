@@ -1,16 +1,78 @@
-# React + Vite
+# Cultura-IA
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicativo web para descoberta de eventos culturais com assistente IA integrado.
 
-Currently, two official plugins are available:
+## Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Descoberta de Eventos**: Lista de eventos culturais categorizados por tipo, localização e preço.
+- **Sistema de Favoritos**: Salve seus eventos preferidos.
+- **Login/Registro**: Sistema de autenticação para usuários.
+- **Assistente IA**: Chatbot inteligente que recomenda eventos e responde perguntas sobre cultura.
+- **Filtros Avançados**: Filtre eventos por categoria, localização e preço.
 
-## React Compiler
+## Tecnologias
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Frontend**: React + Vite
+- **Estilos**: CSS customizado com Tailwind CSS
+- **IA**: OpenAI GPT-4 via API
+- **Deploy**: Vercel (com funções serverless)
 
-## Expanding the ESLint configuration
+## Instalação e Execução
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/luizcaua33pz/prototipo_IHC.git
+   cd cultura-ia
+   ```
+
+2. Instale as dependências:
+   ```bash
+   npm install
+   ```
+
+3. Configure as variáveis de ambiente:
+   - Crie um arquivo `.env` na raiz do projeto
+   - Adicione sua chave da OpenAI:
+     ```
+     VITE_OPENAI_API_KEY=sua-chave-aqui
+     ```
+
+4. Execute o projeto:
+   ```bash
+   npm run dev
+   ```
+
+## Deploy no Vercel
+
+1. Conecte seu repositório no Vercel.
+2. Adicione a variável de ambiente `OPENAI_API_KEY` (sem VITE_) no painel do Vercel.
+3. Deploy automático será feito.
+
+## Estrutura do Projeto
+
+```
+src/
+├── App.jsx          # Componente principal
+├── Chatbot.jsx      # Assistente IA
+├── LoginRegister.jsx # Sistema de login
+├── App.css          # Estilos principais
+└── index.css        # Estilos globais
+
+api/
+└── openai.js        # Função serverless para OpenAI
+
+public/
+└── assets/          # Imagens e ícones
+```
+
+## Contribuição
+
+1. Fork o projeto
+2. Crie uma branch para sua feature (`git checkout -b feature/nova-feature`)
+3. Commit suas mudanças (`git commit -am 'Adiciona nova feature'`)
+4. Push para a branch (`git push origin feature/nova-feature`)
+5. Abra um Pull Request
+
+## Licença
+
+Este projeto é para fins educacionais e de prototipagem.
